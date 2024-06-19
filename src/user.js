@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("./modal/user");
 
-// save user
+// save user task
 router.post("/user", async (req, res) => {
   try {
     const userInfo = new User(req.body);
@@ -13,7 +13,7 @@ router.post("/user", async (req, res) => {
   }
 });
 
-// get users
+// get users tasks
 router.get("/user", async (req, res) => {
   try {
     const users = await User.find();
@@ -23,7 +23,7 @@ router.get("/user", async (req, res) => {
   }
 });
 
-// get user by id
+// get user task by id
 router.get("/user/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -34,7 +34,7 @@ router.get("/user/:id", async (req, res) => {
   }
 });
 
-// delete user by id
+// delete user task by id
 router.delete("/user/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -48,7 +48,7 @@ router.delete("/user/:id", async (req, res) => {
   }
 });
 
-// update user by id
+// update user task by id
 router.put("/user/:id", async (req, res) => {
   try {
     const id = req.params.id;
