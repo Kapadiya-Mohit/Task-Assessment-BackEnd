@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // create schema
-const userSchema = mongoose.Schema({
+const taskSchema = mongoose.Schema({
   title: {
     type: String,
     require: true,
@@ -18,5 +18,5 @@ const userSchema = mongoose.Schema({
 });
 
 // create documentation
-const User = mongoose.model("User", userSchema);
-module.exports = User;
+const Task = mongoose.model("Task", taskSchema);
+module.exports = Task;

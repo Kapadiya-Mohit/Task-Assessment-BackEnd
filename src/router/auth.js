@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Auth = require("./modal/auth");
+const Auth = require("../modal/auth");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
@@ -33,7 +33,7 @@ router.post("/auth/login", async (req, res) => {
     const { email, password } = req.body;
     const user = await Auth.findOne({ email });
     if (!user) {
-      return res.status(400).send({ message: "Invalid email or password" });
+      return res.status(400).send({ message: "User not found" });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);

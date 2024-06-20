@@ -4,8 +4,8 @@ require("./database/conn");
 const cors = require("cors");
 
 const port = process.env.PORT || 3000;
-const uploadRouter = require("./user");
-const authRouter = require("./auth");
+const taskRouter = require("./router/task");
+const authRouter = require("./router/auth");
 
 app.use(express.json());
 
@@ -17,7 +17,7 @@ const corsOrigin = {
 app.use(cors(corsOrigin));
 
 // Add router
-app.use("/", uploadRouter);
+app.use("/", taskRouter);
 app.use("/", authRouter);
 
 app.listen(port, () => {
