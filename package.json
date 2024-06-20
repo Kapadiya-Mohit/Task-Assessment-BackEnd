@@ -5,13 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev":"nodemon src/app.js"
+    "start:dev": "nodemon src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "express": "^4.19.2",
-    "mongoose": "^8.4.3"
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.3",
+    "validator": "^13.12.0"
   }
 }
