@@ -16,7 +16,13 @@ async function hashPassword(password) {
 // save user
 router.post("/auth/signup", async (req, res) => {
   try {
-    const password = req.body.password;
+    const { email, password } = req.body;
+    const presentUser = await Auth.findOne({ email });
+    if (presentUser) {
+      return res
+        .status(400)
+        .send({ message: "Email is already exists, Please login" });
+    }
     const hashedPassword = await hashPassword(password);
     const body = { ...req.body, password: hashedPassword };
     const authInfo = new Auth(body);
